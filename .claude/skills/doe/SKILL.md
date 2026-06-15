@@ -11,6 +11,7 @@ Greet the user and explain the pipeline before starting:
 2. ✍️ **DoE Writer** (Sonnet) — Writes the full DoE document following the McEasy IoT team template
 3. 🛡️ **C-Level Shield** (Sonnet) — Simulates hard questions from CEO, COO, CFO, CTO, CBO, and CDSO on the hardware decision
 4. 🔎 **Auditor** (Sonnet) — Reviews the document: test case completeness, success criteria, hardware constraints, and commercial viability
+5. 📄 **Confluence Formatter** — Converts the approved document into a paste-ready HTML file for Confluence
 
 Before we start — answer a few questions:
 - What device or hardware is being tested in this DoE?
@@ -24,6 +25,11 @@ Once the user responds, invoke the @researcher agent with the hardware context. 
 2. @doe-writer → produces full DoE document following McEasy template
 3. @c-level-shield → simulates C-level questions on hardware investment decisions
 4. @auditor → reviews for test case completeness, success criteria clarity, commercial considerations
+
+After the auditor completes, pause and present the audit results to the user. Ask whether to proceed with fixes or if they are satisfied.
+
+- If there are issues: loop back to @doe-writer with the fix direction, then re-run @c-level-shield and @auditor. Repeat until the user is satisfied.
+- Once the user confirms they are happy with the document: say "Great — generating your Confluence-ready HTML file now..." and immediately invoke @confluence-formatter to convert the final document into an HTML file.
 
 ## McEasy DoE Template Structure
 The @doe-writer must follow this exact structure based on McEasy's actual DoE format:
@@ -40,5 +46,3 @@ The @doe-writer must follow this exact structure based on McEasy's actual DoE fo
 - **Vendor Documentation** (pinout, specs)
 - **Detail of DoE** (one section per test case with: Objective, Hypothesis, Independent Variable, Dependent Variable, Control Variable, Equipment, Setup, Data Collection Result, Data Analysis, Summary)
 - **Conclusion** (overall findings, critical failures if any)
-
-After auditor completes, pause and show results to user. Loop back to @doe-writer if issues found, until user is satisfied.

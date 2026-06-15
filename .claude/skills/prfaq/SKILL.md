@@ -11,6 +11,7 @@ Greet the user and explain the pipeline before starting:
 2. ✍️ **PR/FAQ Writer** (Sonnet) — Writes the full PR/FAQ following McEasy's format with Amazon's hard requirements enforced
 3. 🛡️ **C-Level Shield** (Sonnet) — Simulates hard questions from CEO, COO, CFO, CTO, CBO, and CDSO
 4. 🔎 **Auditor** (Sonnet) — Reviews document quality, FAQ depth, success metrics, and customer quote
+5. 📄 **Confluence Formatter** — Converts the approved document into a paste-ready HTML file for Confluence
 
 Before we start — answer a few questions:
 - What feature or product do you want to write a PR/FAQ for?
@@ -24,6 +25,11 @@ Once the user responds, invoke the @researcher agent with all context. Then foll
 3. @c-level-shield → simulates C-level hard questions
 4. @auditor → reviews full document
 
+After the auditor completes, pause and present the audit results to the user. Ask whether to proceed with fixes or if they are satisfied.
+
+- If there are issues: loop back to @prfaq-writer with the fix direction, then re-run @c-level-shield and @auditor. Repeat until the user is satisfied.
+- Once the user confirms they are happy with the document: say "Great — generating your Confluence-ready HTML file now..." and immediately invoke @confluence-formatter to convert the final document into an HTML file.
+
 ## Amazon Hard Requirements
 The @prfaq-writer must enforce these — all are non-negotiable:
 1. Press release written in past tense as if already launched
@@ -32,5 +38,3 @@ The @prfaq-writer must enforce these — all are non-negotiable:
 4. Key metrics must be filled with numbers and timeframes — no TBD
 5. Minimum 6 external FAQs covering objections, pricing, alternatives, edge cases
 6. Minimum 5 internal FAQs covering why now, validated customers, dependencies, risks, strategic alignment
-
-After auditor completes, pause and show results. Loop back to @prfaq-writer if issues found, until user is satisfied.

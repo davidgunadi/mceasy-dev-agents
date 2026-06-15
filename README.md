@@ -1,6 +1,6 @@
 # McEasy Claude Agents
 
-AI-powered document writing pipelines for McEasy's product, IoT, and strategy teams. Built on Claude Code using a multi-agent system that handles research, writing, C-level simulation, and auditing automatically.
+AI-powered document writing pipelines for McEasy's product, IoT, and strategy teams. Built on Claude Code using a multi-agent system that handles research, writing, C-level simulation, auditing, and Confluence export automatically.
 
 ---
 
@@ -14,7 +14,7 @@ Three slash commands, each triggering a full pipeline:
 | `/doe` | Hardware Design of Experiment |
 | `/prfaq` | PR/FAQ (Amazon Working Backwards format) |
 
-Each pipeline runs 4 agents in sequence: **Researcher → Writer → C-Level Shield → Auditor**, then pauses for your review.
+Each pipeline runs 5 steps: **Researcher → Writer → C-Level Shield → Auditor → Confluence Formatter**
 
 ---
 
@@ -28,21 +28,14 @@ Each pipeline runs 4 agents in sequence: **Researcher → Writer → C-Level Shi
 
 ## Setup
 
-**Option A — Clone the repo** (recommended if you have Git)
+1. Clone the repo
 ```bash
 git clone https://github.com/mceasy/mceasy-dev-agents.git
 ```
 
-**Option B — Download as ZIP** (no Git required)
-1. Go to the repo on GitHub
-2. Click the green **Code** button → **Download ZIP**
-3. Unzip the file on your machine
+2. Open the folder in Claude Code via Claude Desktop
 
-Then:
-
-1. Open the folder in Claude Code via Claude Desktop
-
-2. That's it — the agents and skills load automatically from `.claude/`
+3. That's it — the agents and skills load automatically from `.claude/`
 
 > **Note:** The `.claude/` folder is hidden by default. On Mac press `Cmd + Shift + .` to show hidden files. On Windows go to View → Show → Hidden items.
 
@@ -67,20 +60,25 @@ Claude will greet you, explain the pipeline, and ask about the feature or device
 - The agents run automatically in sequence
 - After the **Auditor** completes, the pipeline **pauses** and shows you the audit results
 - Review the issues, confirm the fix direction, and the writer will revise
-- **The loop runs until you're satisfied** — just stop when you're happy with the output
+- **The loop runs until you're satisfied** — just say you're happy when you're done
+- Once you confirm, the **Confluence Formatter** runs automatically and produces an `.html` file
 
-### Tips
+### Pasting into Confluence
 
-- The more context you give at the start, the better the Researcher output will be
-- You can upload a rough `.md` file with bullet points — the Researcher will make sense of it
-- If the Auditor flags something you disagree with, tell Claude and it will skip that issue
+1. Open the generated `.html` file in your browser
+2. Press `Cmd+A` (Mac) or `Ctrl+A` (Windows) to select all
+3. Press `Cmd+C` / `Ctrl+C` to copy
+4. Open your Confluence page in Edit mode
+5. Click in the editor and press `Cmd+V` / `Ctrl+V` to paste
+
+Headings, tables, bullets, bold — all render correctly.
 
 ---
 
 ## Pipeline detail
 
 ```
-You: "I want to write a PRD for X"
+You: describe feature or upload .md file
           ↓
     Researcher (Opus)
     Researches SEA market, competitors, user personas
@@ -97,6 +95,9 @@ You: "I want to write a PRD for X"
     ⏸ You review and decide what to fix
           ↓
     Loop until satisfied
+          ↓
+    Confluence Formatter (Sonnet)
+    Generates paste-ready .html file
 ```
 
 ---
@@ -111,6 +112,7 @@ You: "I want to write a PRD for X"
 | `prfaq-writer` | Sonnet | PR/FAQ using Amazon's Working Backwards format |
 | `c-level-shield` | Sonnet | Hard questions from 6 C-level execs |
 | `auditor` | Sonnet | 6-dimension document review |
+| `confluence-formatter` | Sonnet | Converts final document to Confluence-ready HTML |
 
 ---
 
