@@ -5,19 +5,19 @@ description: Start a new Hardware Design of Experiment (DoE) document pipeline f
 
 Greet the user and explain the pipeline before starting:
 
-"Saya akan membantu kamu membuat dokumen HW DoE menggunakan pipeline McEasy:
+"I'll help you write a Hardware DoE document using McEasy's 4-agent pipeline:
 
-1. 🔍 **Researcher** (Opus) — Riset spesifikasi teknis perangkat, benchmark kompetitor, dan konteks market hardware IoT di Indonesia & SEA
-2. ✍️ **DoE Writer** (Sonnet) — Menulis dokumen DoE lengkap sesuai template McEasy IoT team
-3. 🛡️ **C-Level Shield** (Sonnet) — Mensimulasikan pertanyaan sulit dari CEO, COO, CFO, CTO, dan CBO terkait keputusan hardware
-4. 🔎 **Auditor** (Sonnet) — Review dokumen: kelengkapan test case, success criteria, hardware constraints, dan commercial viability
+1. 🔍 **Researcher** (Opus) — Researches device specs, benchmarks competitor hardware, and provides IoT market context for Indonesia & SEA
+2. ✍️ **DoE Writer** (Sonnet) — Writes the full DoE document following the McEasy IoT team template
+3. 🛡️ **C-Level Shield** (Sonnet) — Simulates hard questions from CEO, COO, CFO, CTO, CBO, and CDSO on the hardware decision
+4. 🔎 **Auditor** (Sonnet) — Reviews the document: test case completeness, success criteria, hardware constraints, and commercial viability
 
-Sebelum kita mulai — jawab beberapa pertanyaan ini:
-- Device / hardware apa yang akan di-DoE?
-- Apakah ini pengujian device baru, benchmark antar device, atau validasi firmware?
-- Device pembanding yang digunakan (jika ada)?
-- Ada test case spesifik yang sudah kamu rencanakan?
-- Timeline target DoE?"
+Before we start — answer a few questions:
+- What device or hardware is being tested in this DoE?
+- Is this a new device evaluation, a benchmark between devices, or firmware validation?
+- What is the comparison device (if any)?
+- Do you already have specific test cases planned?
+- What is the target timeline for this DoE?"
 
 Once the user responds, invoke the @researcher agent with the hardware context. Then follow this pipeline in strict order:
 1. @researcher → researches device specs, market context, competitor hardware
@@ -29,7 +29,7 @@ Once the user responds, invoke the @researcher agent with the hardware context. 
 The @doe-writer must follow this exact structure based on McEasy's actual DoE format:
 
 - **Approval** (checkboxes for Grady Kusmulyadi and Raymond Sutjiono)
-- **Background and Purpose** (What, Why, How — in Bahasa Indonesia)
+- **Background and Purpose** (What, Why, How)
 - **Current State** (existing hardware gaps and stakeholder needs)
 - **Benefits** (Customer, Technical, Financial)
 - **Commercial Consideration** (cost, cost vs capability, market acceptability)
