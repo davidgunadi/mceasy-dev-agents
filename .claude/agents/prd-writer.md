@@ -98,4 +98,4 @@ You will receive a research brief from the researcher agent. Your job is to turn
 ---
 
 After writing the PRD, append this line at the end:
-`[WRITER COMPLETE — ready for C-Level Shield review]`
+`[PRD-WRITER COMPLETE — ready for C-Level Shield review]`
