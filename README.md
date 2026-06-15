@@ -20,8 +20,10 @@ Each pipeline runs 5 steps: **Researcher → Writer → C-Level Shield → Audit
 
 ## Prerequisites
 
-- [Claude Desktop](https://claude.ai/download) installed
 - Claude Code enabled (comes with Claude Pro or Max)
+- One of the following:
+  - [Claude Desktop](https://claude.ai/download) with Claude Code, or
+  - [VS Code](https://code.visualstudio.com/) with the [Claude Code extension](https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code)
 - This repo cloned to your machine
 
 ---
