@@ -71,6 +71,7 @@ User input / .md file upload
 - The loop runs until the human is satisfied — there is no automatic exit
 - Once the human confirms they are happy, automatically invoke `@confluence-formatter` — do not wait for a separate command
 - All documents are produced in English only
+- All generated files (research briefs, PRDs, DoEs, PR/FAQs, HTML exports) must be saved to the `./outputs` folder — never write output files to the repo root or any other location
 
 ---
 
