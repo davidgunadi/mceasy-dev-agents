@@ -59,6 +59,27 @@ These are non-negotiable. Every one must be met before the document is considere
 - Every section must be filled — do not skip sections or write "TBD"
 - The press release must read like a real announcement, not a pitch deck
 
+## McEasy Mobile Apps Reference
+
+Most PR/FAQs describe features built primarily for the McEasy web platform. Every PR/FAQ must also evaluate mobile opportunities.
+
+Before writing the Mobile Opportunities section, use the Read tool to read the file at `.claude/kb/mobile-apps-summary.md` (relative to the repo root). You must do this before evaluating either app — the evaluation must be grounded in actual documented capabilities, not assumptions or training data.
+
+If the file cannot be read, do not attempt to evaluate mobile opportunities from memory. Instead, write the following in the Mobile Opportunities section and move on:
+
+> Mobile evaluation skipped — `.claude/kb/mobile-apps-summary.md` could not be read. Requires manual input before this section is complete.
+
+Note that the KB file is a summary of help articles and UI flows — it describes what each app does, not what APIs or backend data it consumes. Where a mobile opportunity depends on backend integration that is not documented in the KB, mark it explicitly as `Needs Validation` rather than assuming it is possible.
+
+## Mobile Opportunities Evaluation
+
+For every PR/FAQ, evaluate whether the feature being documented has a meaningful place in either mobile app. Apply this reasoning:
+
+1. **MEP Mobile** — ask: would a fleet manager or operator benefit from accessing this feature on mobile, either as a mirror of the web feature or as a mobile-native complement (e.g., push notification trigger, quick action, location-aware shortcut)?
+2. **Driver App** — ask: does this feature affect what a driver does in the field? Could a driver-facing version capture proof, receive a prompt, or act on information from this feature during a trip or assignment?
+3. If there is **no clear mobile opportunity**, state why explicitly — do not leave it blank or write "not applicable" without a reason.
+4. Every recommendation must include a priority: **High** (clear user value, fits existing app patterns), **Medium** (possible but needs validation), **Low** (edge case or marginal value), or **Not Recommended** (actively conflicts with app scope or user workflow).
+
 ## Red-Team Self-Check
 
 Run this before appending the completion marker:
@@ -69,6 +90,9 @@ Run this before appending the completion marker:
 - **Delivery** — requirements testable? Dependencies clear? Edge cases covered? Risks/mitigations realistic? Rollout phased? Timeline realistic discovery→rollout?
 - **Business** — success metric defined? Commercial impact? Pricing/package discussed? Support/CS/Implementation impact considered?
 - **McEasy fit** — strengthens fleet/logistics/telematics/safety/visibility value? Aligns with existing modules? Can Sales and CS explain it easily?
+- **Mobile — MEP Mobile** — was the KB file read before evaluating? Is the evaluation grounded in specific documented capabilities, not assumptions?
+- **Mobile — Driver App** — does the evaluation account for the driver's narrow, task-focused workflow? Is the opportunity or non-opportunity explained specifically?
+- **Mobile — Conclusions** — does every "Not Recommended" conclusion include an explicit reason? Is every recommendation prioritized using the defined scale?
 
 ## McEasy PR/FAQ Template
 
@@ -252,6 +276,44 @@ Key capabilities now available to McEasy customers:
 
 ---
 
+## 📱 Mobile Opportunities
+
+*Apply the four-step evaluation defined in the Mobile Opportunities Evaluation section of the agent instructions. Read `.claude/kb/mobile-apps-summary.md` using the Read tool before filling this section. All opportunities and non-opportunities must reference specific capabilities documented in that file — do not describe capabilities that are not listed there. If a capability depends on backend integration not covered by the KB, mark it `Needs Validation`.*
+
+### McEasy Platform Mobile (MEP Mobile)
+
+#### Mirror Opportunity
+[Can this feature be replicated in MEP Mobile for fleet managers or operators on the go? Reference specific MEP Mobile capabilities from the KB. If yes, describe what the mobile version would look like and what specific value it adds over the web experience. If no, explain why.]
+
+#### Complementary Feature Opportunity
+[Is there a mobile-native capability that adds value alongside the main web feature — e.g., push notification trigger, quick action, location-aware shortcut, real-time alert? Reference specific MEP Mobile capabilities from the KB. Describe the opportunity or state explicitly why there is none.]
+
+#### Recommendation
+| Item | Detail |
+|---|---|
+| Build | [Specific mobile feature or "Not Recommended"] |
+| Rationale | [Why this adds — or does not add — value for MEP Mobile users] |
+| Priority | High / Medium / Low / Not Recommended |
+
+---
+
+### McEasy Driver App
+
+#### Mirror Opportunity
+[Can drivers benefit from a version of this feature in the field? Drivers have a narrow, task-focused workflow (assignments, deliveries, proof capture). Reference specific Driver App capabilities from the KB. If yes, describe. If no, explain why it is out of scope for the driver context.]
+
+#### Complementary Feature Opportunity
+[Is there a driver-facing complement — e.g., in-app prompt during an assignment, proof-of-action capture, field notification? Reference specific Driver App capabilities from the KB. Describe the opportunity or state explicitly why there is none.]
+
+#### Recommendation
+| Item | Detail |
+|---|---|
+| Build | [Specific driver app feature or "Not Recommended"] |
+| Rationale | [Why this adds — or does not add — value for drivers in the field] |
+| Priority | High / Medium / Low / Not Recommended |
+
+---
+
 ## 📊 Key Metrics
 
 *Every cell must be filled. No TBD. No empty rows.*
@@ -302,6 +364,7 @@ If McEasy provides [feature], then [persona/customer] will be able to [outcome],
 - [ ] Potential customers or market segment listed
 - [ ] Discovery-to-rollout timeline is realistic
 - [ ] Key dependencies and risks identified
+- [ ] Mobile opportunities evaluated for MEP Mobile and Driver App; all recommendations prioritized and factored into scope
 
 ---
 
