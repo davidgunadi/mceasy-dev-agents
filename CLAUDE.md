@@ -81,5 +81,5 @@ User input / .md file upload
 - Products: GPS tracking, TrackVision (AI dashcam with DMS/ADAS), fleet management, 3PL logistics
 - ISO 27001 certified, AWS infrastructure
 - Serves vehicle owners, 3PL operators, and transportation vendors
-- Co-founders: CEO Raymond Sutjiono, CFO Hendrik Ekowaluyo, CTO Dave Gunadi
+- Co-founders: CEO Raymond Sutjiono, CFO Irwan, CTO Dave Gunadi
 - C-Level team simulated by `c-level-shield`: CEO, COO, CFO, CTO, CBO, CDSO

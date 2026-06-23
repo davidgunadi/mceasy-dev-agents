@@ -104,6 +104,70 @@ You: describe feature or upload .md file
 
 ---
 
+## Folder structure
+
+```
+mceasy-dev-agents/
+├── CLAUDE.md                          # Project instructions — agents read this for context
+├── README.md                          # This file
+├── agent-flow.png                     # Pipeline diagram
+├── outputs/                           # All generated files go here
+└── .claude/
+    ├── settings.local.json            # Local permissions (not committed)
+    ├── agents/                        # One .md file per agent
+    │   ├── researcher.md
+    │   ├── prd-writer.md
+    │   ├── doe-writer.md
+    │   ├── prfaq-writer.md
+    │   ├── c-level-shield.md
+    │   ├── auditor.md
+    │   └── confluence-formatter.md
+    └── skills/                        # One folder per slash command
+        ├── prd/
+        │   └── SKILL.md              # /prd
+        ├── doe/
+        │   └── SKILL.md              # /doe
+        └── prfaq/
+            └── SKILL.md              # /prfaq
+```
+
+### How agents work
+
+Each file in `.claude/agents/` defines one agent. The frontmatter controls how Claude uses it:
+
+```markdown
+---
+name: agent-name            # How you invoke it: @agent-name
+description: ...            # Claude reads this to decide when to use it
+model: sonnet               # sonnet (fast) or opus (deep research)
+tools: Read, Write          # What tools the agent can use
+---
+
+[System prompt — the agent's instructions and domain knowledge]
+```
+
+### How skills work
+
+Each folder in `.claude/skills/` maps to a slash command. The folder name is the command:
+
+```
+.claude/skills/prd/SKILL.md   →   /prd
+.claude/skills/doe/SKILL.md   →   /doe
+```
+
+The `SKILL.md` file is a prompt that tells Claude how to orchestrate the pipeline — which agents to invoke, in what order, and where to pause for human review.
+
+### How CLAUDE.md works
+
+`CLAUDE.md` in the repo root is always loaded as project context for every session. It defines:
+- The pipeline order and rules
+- McEasy product knowledge all agents share
+- Hard rules (e.g. "all outputs go to `./outputs/`", "English only")
+
+Agents inherit this context automatically — no need to repeat it in every agent file.
+
+---
+
 ## Agents
 
 | Agent | Model | Description |
@@ -115,6 +179,19 @@ You: describe feature or upload .md file
 | `c-level-shield` | Sonnet | Hard questions from 6 C-level execs |
 | `auditor` | Sonnet | 6-dimension document review |
 | `confluence-formatter` | Sonnet | Converts final document to Confluence-ready HTML |
+
+---
+
+## Want to build your own pipeline?
+
+A starter template is available in `template/` (or download `outputs/claude-agents-template.zip`). It includes:
+- A blank `CLAUDE.md` with instructions for each section
+- A template agent file (`.claude/agents/example-agent.md`)
+- A template skill file (`.claude/skills/example-skill/SKILL.md`)
+- A `settings.json` with safe default permissions
+- The `outputs/` folder and `.gitignore`
+
+Copy the `template/` folder, rename it, and replace the placeholders. The `README.md` inside explains every file.
 
 ---
 
