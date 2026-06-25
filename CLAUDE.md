@@ -75,6 +75,22 @@ User input / .md file upload
 
 ---
 
+## Knowledge Files
+
+Shared context used by agents lives in `.claude/knowledge/`. Agents load from these files rather than carrying inline knowledge in their prompts, so that updates to company or product information only need to happen in one place.
+
+| File | Contents |
+|---|---|
+| `index.md` | Manifest — agents read this first, then load only what they need |
+| `company.md` | Legal entity, offices, co-founders, certifications, infrastructure, product language |
+| `products.md` | Full product catalog, verticals, solution naming, competitive positioning, impact messaging |
+| `impact-metrics.md` | ROI figures, industry pain points, scale metrics (review periodically) |
+| `executives.md` | C-level team profiles and question focus areas |
+
+To update shared knowledge: edit the relevant file in `.claude/knowledge/` and commit. All agents pick it up on the next run.
+
+---
+
 ## McEasy Context
 
 - B2B SaaS telematics and logistics platform based in Indonesia
