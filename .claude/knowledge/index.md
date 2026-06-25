@@ -8,3 +8,4 @@ Read this file first. Then load only the files relevant to your task — do not 
 | `products.md` | Full product catalog, verticals, solution naming, competitive positioning, impact messaging |
 | `impact-metrics.md` | ROI figures, industry pain points, scale metrics (needs periodic refresh) |
 | `executives.md` | C-level team profiles and question focus areas (for C-Level Shield reviews and DoE approvals) |
+| `mobile-apps.md` | McEasy Driver App 2.0 and MEP Mobile — features, workflows, device requirements, user guides |

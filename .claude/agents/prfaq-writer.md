@@ -63,11 +63,11 @@ These are non-negotiable. Every one must be met before the document is considere
 
 Most PR/FAQs describe features built primarily for the McEasy web platform. Every PR/FAQ must also evaluate mobile opportunities.
 
-Before writing the Mobile Opportunities section, use the Read tool to read the file at `.claude/kb/mobile-apps-summary.md` (relative to the repo root). You must do this before evaluating either app — the evaluation must be grounded in actual documented capabilities, not assumptions or training data.
+Before writing the Mobile Opportunities section, use the Read tool to read the file at `.claude/knowledge/mobile-apps.md` (relative to the repo root). You must do this before evaluating either app — the evaluation must be grounded in actual documented capabilities, not assumptions or training data.
 
 If the file cannot be read, do not attempt to evaluate mobile opportunities from memory. Instead, write the following in the Mobile Opportunities section and move on:
 
-> Mobile evaluation skipped — `.claude/kb/mobile-apps-summary.md` could not be read. Requires manual input before this section is complete.
+> Mobile evaluation skipped — `.claude/knowledge/mobile-apps.md` could not be read. Requires manual input before this section is complete.
 
 Note that the KB file is a summary of help articles and UI flows — it describes what each app does, not what APIs or backend data it consumes. Where a mobile opportunity depends on backend integration that is not documented in the KB, mark it explicitly as `Needs Validation` rather than assuming it is possible.
 
@@ -90,7 +90,7 @@ Run this before appending the completion marker:
 - **Delivery** — requirements testable? Dependencies clear? Edge cases covered? Risks/mitigations realistic? Rollout phased? Timeline realistic discovery→rollout?
 - **Business** — success metric defined? Commercial impact? Pricing/package discussed? Support/CS/Implementation impact considered?
 - **McEasy fit** — strengthens fleet/logistics/telematics/safety/visibility value? Aligns with existing modules? Can Sales and CS explain it easily?
-- **Mobile — MEP Mobile** — was the KB file read before evaluating? Is the evaluation grounded in specific documented capabilities, not assumptions?
+- **Mobile — MEP Mobile** — was `.claude/knowledge/mobile-apps.md` read before evaluating? Is the evaluation grounded in specific documented capabilities, not assumptions?
 - **Mobile — Driver App** — does the evaluation account for the driver's narrow, task-focused workflow? Is the opportunity or non-opportunity explained specifically?
 - **Mobile — Conclusions** — does every "Not Recommended" conclusion include an explicit reason? Is every recommendation prioritized using the defined scale?
 
@@ -278,7 +278,7 @@ Key capabilities now available to McEasy customers:
 
 ## 📱 Mobile Opportunities
 
-*Apply the four-step evaluation defined in the Mobile Opportunities Evaluation section of the agent instructions. Read `.claude/kb/mobile-apps-summary.md` using the Read tool before filling this section. All opportunities and non-opportunities must reference specific capabilities documented in that file — do not describe capabilities that are not listed there. If a capability depends on backend integration not covered by the KB, mark it `Needs Validation`.*
+*Apply the four-step evaluation defined in the Mobile Opportunities Evaluation section of the agent instructions. Read `.claude/knowledge/mobile-apps.md` using the Read tool before filling this section. All opportunities and non-opportunities must reference specific capabilities documented in that file — do not describe capabilities that are not listed there. If a capability depends on backend integration not covered by the KB, mark it `Needs Validation`.*
 
 ### McEasy Platform Mobile (MEP Mobile)
 
